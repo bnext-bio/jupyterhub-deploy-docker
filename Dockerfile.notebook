@@ -1,0 +1,10 @@
+FROM jupyter/minimal-notebook:latest
+
+USER root
+
+RUN mamba install -y -c conda-forge nb_conda_kernels "elyra[all]" && \
+    mamba create -y -n py310 python=3.10 ipykernel numpy pandas && \
+    mamba create -y -n py312 python=3.12 ipykernel numpy pandas && \
+    mamba clean --all -f -y
+
+USER $NB_USER

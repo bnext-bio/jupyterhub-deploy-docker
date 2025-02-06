@@ -2,33 +2,44 @@ services:
   hub:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.hub
       args:
         JUPYTERHUB_VERSION: latest
-    restart: always
     image: jupyterhub
     container_name: jupyterhub
+    restart: always
     networks:
       - jupyterhub-network
     volumes:
-      # The JupyterHub configuration file
+      # JupyterHub configuration
       - "./jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py:ro"
-      # Bind Docker socket on the host so we can connect to the daemon from
-      # within the container
+      # Docker socket so DockerSpawner can create containers
       - "/var/run/docker.sock:/var/run/docker.sock:rw"
-      # Bind Docker volume on host for JupyterHub database and cookie secrets
+      # Persist JupyterHub database & cookie secret
       - "jupyterhub-data:/data"
     ports:
       - "8000:8000"
     environment:
-      # This username will be a JupyterHub admin
+      # Admin user
       JUPYTERHUB_ADMIN: admin
-      # All containers will join this network
+      # Network name for spawned containers
       DOCKER_NETWORK_NAME: jupyterhub-network
-      # JupyterHub will spawn this Notebook image for users
-      DOCKER_NOTEBOOK_IMAGE: quay.io/jupyter/base-notebook:latest
-      # Notebook directory inside user image
+      # Image to spawn for single-user notebooks
+      DOCKER_NOTEBOOK_IMAGE: jupyter-elyra-multienv:latest
+      # Notebook directory in the single-user image
       DOCKER_NOTEBOOK_DIR: /home/jovyan/work
+
+  # Build-only service for the single-user image
+  singleuser-image:
+    build:
+      context: .
+      dockerfile: Dockerfile.notebook
+    image: jupyter-elyra-multienv:latest
+    container_name: singleuser-build
+    networks:
+      - jupyterhub-network
+    # We don't actually run this container, just build the image
+    entrypoint: /bin/true
 
 volumes:
   jupyterhub-data:
