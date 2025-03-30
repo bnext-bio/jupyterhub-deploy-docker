@@ -46,9 +46,6 @@ services:
     container_name: singleuser-build
     networks:
       - jupyterhub-network
-    volumes:
-    - "./templates:/home/jovyan/.jupyter/templates:ro"
-    # - "./envs:/opt/nucleus-envs"
     # We don't actually run this container, just build the image
     entrypoint: /bin/true
 
