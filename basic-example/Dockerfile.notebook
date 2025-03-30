@@ -1,0 +1,19 @@
+FROM jupyter/minimal-notebook:latest
+
+USER root
+
+RUN apt-get -y update && apt-get -y install gcc g++
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install everything via conda/mamba, including conda-based compilers
+# RUN mamba install -y -c conda-forge nb_conda_kernels jlab-enhanced-cell-toolbar "elyra[all]" && \
+    #mamba create -y -n py310 python=3.10 ipykernel numpy pandas && \
+    #mamba create -y -n py312 python=3.12 ipykernel numpy pandas
+
+# RUN /opt/conda/envs/py310/bin/pip install git+https://github.com/fuad00/dataprep.git@develop
+RUN uv pip install -e /opt/nucleus-envs/nucleus-env
+
+USER $NB_USER
+
+
+

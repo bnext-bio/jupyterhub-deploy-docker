@@ -28,7 +28,7 @@ services:
       # All containers will join this network
       DOCKER_NETWORK_NAME: jupyterhub-network
       # JupyterHub will spawn this Notebook image for users
-      DOCKER_NOTEBOOK_IMAGE: quay.io/jupyter/base-notebook:latest
+      DOCKER_NOTEBOOK_IMAGE: jupyter-workshop:latest
       # Notebook directory inside user image
       DOCKER_NOTEBOOK_DIR: /home/jovyan/work
     labels:
@@ -38,9 +38,22 @@ services:
       - "traefik.http.services.jupyterhub.loadbalancer.server.port=8000"
       - "traefik.http.routers.jupyterhub.tls.certresolver=myresolver"
 
+  singleuser-image:
+    build:
+      context: .
+      dockerfile: Dockerfile.notebook
+    image: jupyter-workshop:latest
+    container_name: singleuser-build
+    networks:
+      - jupyterhub-network
+    volumes:
+    - "./templates:/home/jovyan/.jupyter/templates:ro"
+    - "./envs:/opt/nucleus-envs"
+    # We don't actually run this container, just build the image
+    entrypoint: /bin/true
+
 volumes:
   jupyterhub-data:
 
 networks:
-  jupyterhub-network:
-    name: jupyterhub-network
+  jupyterhub-network: {}
