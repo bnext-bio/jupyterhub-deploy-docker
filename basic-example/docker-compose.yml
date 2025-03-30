@@ -4,6 +4,7 @@
 # JupyterHub docker compose configuration file
 services:
   hub:
+    pull_policy: build
     build:
       context: .
       dockerfile: Dockerfile.jupyterhub
@@ -39,6 +40,7 @@ services:
       - "traefik.http.routers.jupyterhub.tls.certresolver=myresolver"
 
   singleuser-image:
+    pull_policy: build
     build:
       context: .
       dockerfile: Dockerfile.notebook
