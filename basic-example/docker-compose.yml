@@ -2,8 +2,6 @@
 # Distributed under the terms of the Modified BSD License.
 
 # JupyterHub docker compose configuration file
-version: "3"
-
 services:
   hub:
     build:
