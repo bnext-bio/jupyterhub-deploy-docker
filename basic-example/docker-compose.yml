@@ -46,6 +46,8 @@ services:
       dockerfile: Dockerfile.notebook
     image: jupyter-workshop:latest
     container_name: singleuser-build
+    volumes:
+      - ${DATA_DIRECTORY}:/home/joyvan/work/data:ro
     networks:
       - jupyterhub-network
     # We don't actually run this container, just build the image
