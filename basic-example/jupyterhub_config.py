@@ -33,6 +33,9 @@ c.DockerSpawner.notebook_dir = notebook_dir
 c.DockerSpawner.volumes = {"jupyterhub-user-{username}": notebook_dir}
 c.DockerSpawner.read_only_volumes = {os.environ.get("DATA_DIRECTORY", "jupyterhub-shared-data"): "/home/jovyan/work/data"}
 
+# Run our post-setup script
+c.DockerSpawner.post_start_cmd = "/opt/nucleus-envs/setup.sh"
+
 # Remove containers once they are stopped
 c.DockerSpawner.remove = True
 

@@ -15,8 +15,8 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # RUN /opt/conda/envs/py310/bin/pip install git+https://github.com/fuad00/dataprep.git@develop
 ADD ./envs /opt/nucleus-envs
-ADD ./templates /home/jovyan/.jupyter/templates
-ADD ./work-preload /home/jovyan/work
+# ADD ./templates /home/jovyan/.jupyter/templates
+ADD ./work-preload /home/jovyan/work-preload
 RUN ~/.local/bin/uv pip install --system -e /opt/nucleus-envs/nucleus-env
 
 
