@@ -48,7 +48,7 @@ services:
       - jupyterhub-network
     volumes:
     - "./templates:/home/jovyan/.jupyter/templates:ro"
-    - "./envs:/opt/nucleus-envs"
+    # - "./envs:/opt/nucleus-envs"
     # We don't actually run this container, just build the image
     entrypoint: /bin/true
 
@@ -56,4 +56,5 @@ volumes:
   jupyterhub-data:
 
 networks:
-  jupyterhub-network: {}
+  jupyterhub-network:
+      name: jupyterhub-network
