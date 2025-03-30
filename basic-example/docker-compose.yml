@@ -32,7 +32,7 @@ services:
       DOCKER_NOTEBOOK_IMAGE: jupyter-workshop:latest
       # Notebook directory inside user image
       DOCKER_NOTEBOOK_DIR: /home/jovyan/work
-      DATA_DIRECTORY: jupyterhub-shared-data
+      DATA_DIRECTORY: ${DATA_DIRECTORY}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jupyterhub.rule=Host(`workshop.int.bnext.bio`)"
