@@ -16,7 +16,7 @@ if [ -d /home/jovyan/repo ]; then
     rm -rf /home/jovyan/repo;
 fi
 
-git clone --depth=1 git@github.com:bnext-bio/jupyterhub-deploy-docker.git /home/jovyan/repo
+git clone --depth=1 https://github.com/bnext-bio/jupyterhub-deploy-docker.git /home/jovyan/repo
 rsync -av /home/jovyan/repo/basic-example/work-preload/ /home/jovyan/work
 
 # Bring down the curvenote template
