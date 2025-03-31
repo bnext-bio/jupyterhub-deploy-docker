@@ -30,8 +30,10 @@ c.DockerSpawner.notebook_dir = notebook_dir
 
 # Mount the real user's Docker volume on the host to the notebook user's
 # notebook directory in the container
-c.DockerSpawner.volumes = {"jupyterhub-user-{username}": notebook_dir}
-c.DockerSpawner.read_only_volumes = {os.environ.get("DATA_DIRECTORY", "jupyterhub-shared-data"): "/home/jovyan/work/data"}
+c.DockerSpawner.volumes = {
+    "jupyterhub-user-{username}": notebook_dir,
+    os.environ.get("DATA_DIRECTORY", "jupyterhub-shared-data"): "/home/jovyan/work/shared"
+}
 
 # Run our post-setup script
 c.DockerSpawner.post_start_cmd = "/opt/nucleus-envs/setup.sh"
