@@ -44,6 +44,7 @@ dependencies = [
     "jupyterlab-git>=0.51.0",
     "python-lsp-server>=1.12.2",
     "jupyterlab-link-share>=0.3.0",
+    "jupyterlab-lsp>=5.1.0",
 ]
 
 [build-system]

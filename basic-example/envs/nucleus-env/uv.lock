@@ -960,6 +960,19 @@ wheels = [
 ]
 
 [[package]]
+name = "jupyterlab-lsp"
+version = "5.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jupyter-lsp" },
+    { name = "jupyterlab" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b8/49/b6bc55457ebac72928c9db6e5c23c6e0a1d3a5640fc4b4abb4275f10ef7c/jupyterlab-lsp-5.1.0.tar.gz", hash = "sha256:aeac84093ada6d20ef57ae0e97811cc5796a0cab7237b32f8eddf993c0bb0356", size = 760295 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c7/ab/706cb5b018c6a8f32cea5c0d7b55d77f42d78410c4dcbb25b11b210cc972/jupyterlab_lsp-5.1.0-py3-none-any.whl", hash = "sha256:290f473b001c7ebe1edfe391a545f50bc4aefe89d4a64db4f17e8de301db3a37", size = 1564965 },
+]
+
+[[package]]
 name = "jupyterlab-pygments"
 version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1347,6 +1360,7 @@ dependencies = [
     { name = "jupyter-collaboration" },
     { name = "jupyterlab-git" },
     { name = "jupyterlab-link-share" },
+    { name = "jupyterlab-lsp" },
     { name = "jupyterlab-templates" },
     { name = "nucleus-cdk" },
     { name = "numpy" },
@@ -1364,6 +1378,7 @@ requires-dist = [
     { name = "jupyter-collaboration", specifier = ">=1.1.0" },
     { name = "jupyterlab-git", specifier = ">=0.51.0" },
     { name = "jupyterlab-link-share", specifier = ">=0.3.0" },
+    { name = "jupyterlab-lsp", specifier = ">=5.1.0" },
     { name = "jupyterlab-templates", specifier = ">=0.5.2" },
     { name = "nucleus-cdk", specifier = ">=0.3.0a1" },
     { name = "numpy", specifier = ">=1.26.4" },
