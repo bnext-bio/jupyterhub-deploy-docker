@@ -7,5 +7,16 @@
     },
     "@jupyterlab/extensionmanager-extension:plugin": {
         "disclaimed": true
+    },
+    "@jupyterlab/lsp-extension:plugin": {
+        "languageServers": {
+            "pylsp": {
+                "rank": 50,
+                "configuration": {}
+            }
+        },
+        "activate": "on",
+        "setTrace": "off",
+        "logAllCommunication": false
     }
 }

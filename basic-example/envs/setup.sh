@@ -26,3 +26,6 @@ if [ -d ${DEVNOTE_PATH} ]; then
 else
     git clone --depth=1 https://github.com/antonrmolina/devnote-template.git ${DEVNOTE_PATH}
 fi
+
+# Create LSP symlink
+ln -s /home/jovyan/work/.lsp_symlink /
