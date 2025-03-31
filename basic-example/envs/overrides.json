@@ -4,5 +4,8 @@
     },
     "@jupyterlab/apputils-extension:notification": {
         "fetchNews": "false"
+    },
+    "@jupyterlab/extensionmanager-extension:plugin": {
+        "disclaimed": true
     }
 }
