@@ -70,7 +70,7 @@ if admin:
 c.JupyterHub.load_roles = [
     {
         "name": "user",
-        "scopes": ["self", "shares!user", "read:users:name", "read:groups:name"],
+        "scopes": ["self", "shares!user", "read:users:name", "read:groups:name", "access:servers"],
     },
 ]
 
