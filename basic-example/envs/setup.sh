@@ -4,7 +4,7 @@ JUPYTER_SETTINGS=/opt/conda/share/jupyter/lab/settings
 DEVNOTE_PATH=/home/jovyan/work/devnotes/template
 
 echo "Setting up environment"
-/home/jovyan/.local/bin/uv pip install --upgrade nucleus-cdk
+pip install --upgrade nucleus-cdk
 
 cat /opt/nucleus-envs/jupyter_server_config_additional.py >> /home/jovyan/.jupyter/jupyter_server_config.py
 
@@ -28,4 +28,4 @@ else
 fi
 
 # Create LSP symlink
-ln -s /home/jovyan/work/.lsp_symlink /
+ln -s / /home/jovyan/work/.lsp_symlink
