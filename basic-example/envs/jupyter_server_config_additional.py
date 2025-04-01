@@ -15,7 +15,7 @@ c.ServerProxy.servers = {
         "absolute_url": False,
         "environment": {
             "BASE_URL": "{base_url}/proxy/{port}"
-        }
+        },
         "launcher_entry": {
             "enabled": True,
             "title": "Curvenote Preview"
