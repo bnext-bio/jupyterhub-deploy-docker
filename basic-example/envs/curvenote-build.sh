@@ -2,7 +2,7 @@
 
 for devnote_dir in `ls -1d ~/work/devnotes/*/`; do
     name=`basename $devnote_dir`
-    if [ ! -l ~/work/devnotes/.html/$name ]; then
+    if [ ! -L ~/work/devnotes/.html/$name ]; then
         if [ -d ~/devnote_dir/_build/html ]; then
             ln -s $devnote_dir/_build/html ~/work/devnotes/.html/$name
         fi
