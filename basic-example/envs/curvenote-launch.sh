@@ -8,4 +8,4 @@ if [ ! -f ./curvenote.yml ]; then
 fi
 
 caddy file-server --listen :$1 -r ./_build/html &
-nodemon -w . -i _build/ -x $CURVENOTE_BUILD
+nodemon -w . -i _build/ -x $CURVENOTE_BUILD &
