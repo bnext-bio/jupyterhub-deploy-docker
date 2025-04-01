@@ -11,8 +11,11 @@ c.ContentsManager.allow_hidden = True
 
 c.ServerProxy.servers = {
     "curvenote-start": {
-        "command": ["curvenote", "start", "--port", "{port}"],
+        "command": ["/bin/bash", "/opt/nucleus-envs/curvenote-launch.sh", "{port}"],
         "absolute_url": False,
+        "environment": {
+            "BASE_URL": "{base_url}/proxy/{port}"
+        }
         "launcher_entry": {
             "enabled": True,
             "title": "Curvenote Preview"
