@@ -3,4 +3,4 @@
 curvenote build --html
 
 # Kill webserver
-ps aux | grep -P "(?<!grep) node ./server.js" | awk '{print $2}' | xargs -r kill
+ps aux | grep "node ./server.js"| grep -v "grep" | awk '{print $2}' | xargs -r kill
