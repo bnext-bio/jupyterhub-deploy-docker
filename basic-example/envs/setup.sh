@@ -1,18 +1,18 @@
 #!/bin/bash
 
 HOME=/home/jovyan
-REPO=${HOME}/repo
+REPO=/opt/repo
 JUPYTER_SETTINGS=/opt/conda/share/jupyter/lab/settings
 DEVNOTE_PATH=/home/jovyan/work/devnotes/template
 
 echo "Setting up environment"
 
 # Bring down and update our baseline home directory
-if [ -d /home/jovyan/repo ]; then
-    rm -rf /home/jovyan/repo;
+if [ -d ${REPO} ]; then
+    rm -rf ${REPO};
 fi
 
-git clone --depth=1 https://github.com/bnext-bio/jupyterhub-deploy-docker.git ${REPO}
+git clone --depth=1 https://github.com/bnext-bio/jupyterhub-deploy-docker.git ${REPO} &>/dev/null
 rsync -av ${REPO}/basic-example/home-overlay/ ${HOME}
 
 # Update our jupyter configuration
